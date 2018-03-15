@@ -6,25 +6,26 @@
 #    By: vbaudin <vbaudin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/02/22 14:35:47 by vbaudin           #+#    #+#              #
-#    Updated: 2018/03/12 17:30:01 by vbaudin          ###   ########.fr        #
+#    Updated: 2018/03/15 18:56:08 by vbaudin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_malloc
 
 FLAGS = -Wall -Wextra -Werror
-CC = clang $(FLAGS)
+CC = clang -g  -fsanitize=address $(FLAGS)
 SRCS_PATH = srcs
 OBJS_PATH = objs
 BIN_PATH = bin
 
-FILES = main.c
+FILES = main.c \
+				ft_malloc.c
 
 SRCS = $(addprefix $(SRCS_PATH)/,$(FILES))
 OBJS = $(SRCS:$(SRCS_PATH)/%.c=$(OBJS_PATH)/%.o)
 INCLUDE = includes
 
-.PHONY: all clean flcean re
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
